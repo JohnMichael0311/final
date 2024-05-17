@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+        <html>
+        <head>
+            <meta charset="UTF-8">
+            http://yourwebsite.com/search-results.html?q=pizza
+
+            <meta http-equiv="X-UA-Compatible" content="IE=edge">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Dominos | Pizza</title>
+            <link rel="icon" href="./Images/Restaurants/download.png" type="image/icon type">
+        <link rel="stylesheet" href="css/dominos.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+        <style>
+            #searchResults {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* Adjust the gap between items as needed */
+    margin-top: 20px;
+}
+
+.product-item {
+    border: 1px solid #ddd; /* Add a border to each product item */
+    padding: 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* This helps space out the content evenly */
+    height: 100%; /* Ensure all items take up the same height */
+}
+
+.product-image {
+    width: 100%; /* Adjust the width as needed */
+    height: 200px; /* Set a fixed height for the images */
+    object-fit: cover; /* This will ensure the image covers the area without losing its aspect ratio */
+    margin-bottom: 10px;
+}
+
+.product-title {
+    height: 60px; /* Adjust based on your needs to accommodate the title */
+    overflow: hidden; /* Hide overflow text */
+    margin-bottom: 10px;
+    display: -webkit-box;
+    -webkit-line-clamp: 2; /* Limit text to 2 lines */
+    -webkit-box-orient: vertical;
+}
+
+.product-price {
+    margin: 10px 0;
+}
+
+.add-to-cart-btn {
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px; /* Ensure some space above the button */
+}
+
+.add-to-cart-btn:hover {
+    background-color: darkgreen;
+}
+
+
+        </style>
+        </head>
+        <body>
+            <!--Header section start-->
+            <header>
+                <a href="#" class="logo"><i class="fa fa-utensils"></i>Foodies.</a>
+                <nav class="navbar">
+                    <a class="active" href="./home.html">Home</a>
+                    <a href="./dishes.html">dishes</a>
+                    <a href="#" onclick="openAbout()">about</a>
+                    <a href="./contact.html" >Contact us</a>
+                    <!-- <a class="feed" id="feedback">feedback</a> -->
+                    <a href="#">Orders</a>
+                </nav>
+                <div class="InputContainer">
+                    <form action="search-results.html" method="GET">
+                        <input type="text" name="query" class="input" id="input" placeholder="Search">
+                        <button type="submit" class="micButton">Search</button>
+                    </form>
+                    <!-- <input type="text" name="text" class="input" id="input" placeholder="Search"> -->
+                    <!-- <button type="submit" class="micButton"></button>
+                    <label for="input" class="labelforsearch">
+                  <svg viewBox="0 0 512 512" class="searchIcon"><path d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z"></path></svg>
+                  </label> -->
+                  <!-- <div class="border"></div> -->
+                  
+                  <!-- <button class="micButton"><svg viewBox="0 0 384 512" class="micIcon"><path d="M192 0C139 0 96 43 96 96V256c0 53 43 96 96 96s96-43 96-96V96c0-53-43-96-96-96zM64 216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 89.1 66.2 162.7 152 174.4V464H120c-13.3 0-24 10.7-24 24s10.7 24 24 24h72 72c13.3 0 24-10.7 24-24s-10.7-24-24-24H216V430.4c85.8-11.7 152-85.3 152-174.4V216c0-13.3-10.7-24-24-24s-24 10.7-24 24v40c0 70.7-57.3 128-128 128s-128-57.3-128-128V216z"></path></svg>
+                  </button> -->
+                
+                </div>
+                
+                <div class="icons">
+                    <i class="fas fa-bars" id="menu-bars"></i>
+                    <!-- <i class="fas fa-search" id="search-icon"></i> -->
+                    <!-- <a href="#" class="fas fa-heart"></a> -->
+                    <div class="cart">
+                    <a href="#" class="fas fa-shopping-cart"></a>
+                    <a href="addtocart.html">
+                        
+                    </div>
+                         <!-- This will display the number of items in the cart -->
+                    </div>
+                    </a>
+                    <!-- <i class="fa fa-user" aria-hidden="true"></i> -->
+                    <!-- <a href="login.html" class="fas fa-sign-in-alt"></a> -->
+                    <a href="login.html" class="fa fa-user"></a>
+                    
+                    
+                </div>
+        
+              
+            </header>
+        
+            <!-- Search Query Display -->
+<p id="search-query-display"></p>
+<!-- Search Results Container -->
+<div id="searchResults"></div>
+        <!--Rating Form starts-->
+        
+        <!-- <div class="back">
+            <div class="container1" id="co1">
+                <div class="post">
+                    <div class="text">Thanks for Rating us!</div>
+                    <div class="edit">Edit</div>
+                    <i class="fas fa-times" id="close"></i>
+            
+                </div>
+                <div class="star-widget">
+                <input type="radio" name="rate" id="rate-5">
+                <label for="rate-5" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-4">
+                <label for="rate-4" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-3">
+                <label for="rate-3" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-2">
+                <label for="rate-2" class="fas fa-star"></label>
+                <input type="radio" name="rate" id="rate-1">
+                <label for="rate-1" class="fas fa-star"></label>
+                <form action="#">
+                    <i class="fas fa-times" id="close"></i>
+                    <h4></h4>
+                    <div class="textarea">
+                        <textarea cols="30" placeholder="Describe your experience"></textarea>
+            
+                    </div>
+                    
+                    <div class="btn">
+                        <button type="submit">Post</button>
+                    </div>
+                </form>
+                </div>    
+            </div>
+            </div> -->
+        <!--Rating form ends-->
+        <!--side bar-->
+        
+        <!-- <nav class="sidebar">
+            <div class="text">
+            <a href="./home.html"><i class="fa fa-home"></i></a> -->
+            <!-- <ul>
+                <li><a href="#pizza" onclick="myfun()">Veg Pizza</a></li>
+                <li><a href="#nonpizza" onclick="myfunction()">Non-veg Pizza</a></li>
+                <li><a href="#Mania" onclick="myroti()">Pizza Mania</a></li>
+           
+            </ul> -->
+        <!-- </div>
+        </nav> -->
+        <!-- Side bar ends-->
+        <!-- <section class="home" id="home">
+            <div class="barb">
+            <h2><img src="./Images/Restaurants/dominos_social_logo.jpg" height="350"></h2>
+            <div class="cont">
+                <iframe width="420" height="315"
+        src="https://www.youtube.com/embed/wj9NMpwVugQ?autoplay=1&mute=1&loop=1&playlist=wj9NMpwVugQ&loop=1">
+        </iframe>
+                </div>
+                </div>
+        </section> -->
+
+        <div id="loading" style="display: none; text-align: center;">
+            <img src="./Images/loader/loader.gif" alt="Loading...">
+        </div>
+        
+<!--         
+        <div class="body">
+            <div id="root"></div>
+        </div>
+         -->
+        <!--Footer Section-->
+        <div id="about" class="about">
+            <a href="#" class="closebtn" onclick="closeNav()">&times;</a>
+            <div class="about-overlay">
+                <h1>About us</h1>
+                <p>Launched in 2021, Our technology platform connects customers,<br> 
+                restaurant partners and delivery partners, serving their multiple needs. <br>
+                Customers use our platform to search and discover restaurants, read and write customer 
+                generated reviews and view and upload photos,<br> order food delivery, book a table and make 
+                payments while dining-out at restaurants. On the other hand,<br> we provide restaurant partners 
+                with industry-specific marketing tools which enable them to engage and acquire customers<br> to 
+                grow their business while also providing a reliable <br>and efficient last mile delivery service. 
+                We also operate a one-stop procurement solution, <br>Hyperpure, which supplies high quality ingredients 
+                and kitchen products to restaurant partners.<br> We also provide our delivery partners with transparent 
+                and flexible earning opportunities. </p>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    
+                    <div class="footer-col">
+                        <ul>
+                            <i class="fa fa-utensils"></i>
+                            <span>Foodies.</span>
+                        </ul>
+                        <div class="map">
+                            <ul>
+                                <i class="fa fa-map-marker"></i>
+                                    <span>5th Floor,
+                                        A-118,Sangareddy, Hyderabad, Telangana - 502001
+                                    </span>
+                            </ul>
+                            </div>
+                        <div class="mail">
+                            <ul>
+                                <i class="fas fa-inbox"></i>
+                                <span>
+                                    support@foodies.com
+                                </span>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="footer-col">
+                        <h4>Foodies</h4>
+                        <ul>
+                            <li><a href="#">about us</a></li>
+                            <li><a href="#">Our services</a></li>
+                            <li><a href="#">Privacy policy</a></li>
+                            <li><a href="#">Payment policy</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Get help</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">Delivery</a></li>
+                            <li><a href="#">My orders</a></li>
+                            <li><a href="#">Order Status</a></li>
+                            <li><a href="#">Payment options</a></li>
+        
+                        </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Order Now</h4>
+                            <ul>
+                                <li><a href="#">Biryani's</a></li>
+                                <li><a href="#">Restaurants</a></li>
+                                <li><a href="#">Starters</a></li>
+                                <li><a href="#">Fast food</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Follow us</h4>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-twitter"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        
+                            </div>
+        
+                        </div>
+        
+                    </div>
+                    </div>
+                    
+        
+        </footer>
+        
+       
+        <!--Home  ends-->
+        
+        
+        <!--Java Script-->
+        <script src="search-results.js"></script>
+            <script>
+                
+                document.addEventListener('DOMContentLoaded', function() {
+        var urlParams = new URLSearchParams(window.location.search);
+        var query = urlParams.get('query');
+        
+        // Display the search query
+        document.getElementById('search-query-display').textContent = "Search results for: " + query;
+        
+        // Assuming 'search-results.js' handles the search functionality and uses the query
+        // If you're trying to use 'query' within this script, make sure the relevant code is included here
+    });
+                let menu = document.querySelector('#menu-bars');
+                let navbar = document.querySelector('.navbar');
+                
+                menu.onclick = () => {
+                    menu.classList.toggle('fa-times');
+                    navbar.classList.toggle('active');
+                }
+                window.onscroll=() => {
+                    menu.classList.remove('fa-times');
+                    navbar.classList.remove('active');
+                }
+                // document.querySelector('#search-icon').onclick=() => {
+                //     document.querySelector('#search-form').classList.toggle('active');
+                // }
+                // document.querySelector('#close1').onclick=() => {
+                //     document.querySelector('#search-form').classList.toggle('active');
+                // }
+                document.querySelector("#feedback").onclick=() =>{
+                document.querySelector("#co1").classList.toggle("active");
+            }
+                document.querySelector("#close").onclick=() =>{
+                document.querySelector("#co1").classList.toggle("active");
+        
+            }
+            function myfun(){
+                document.getElementById("pizza").style.display="block";
+            }
+            function myfunction(){
+                document.getElementById("nonpizza").style.display="block";
+            }
+            function myroti(){
+                document.getElementById("mania").style.display="block";
+            }
+            function mycurry(){
+                document.getElementById("curry").style.display="block";
+            }
+                const btn = document.querySelector("button");
+                const post = document.querySelector(".post");
+                const widget = document.querySelector(".star-widget");
+                const editBtn = document.querySelector(".edit");
+            
+                btn.onclick = () =>{
+                widget.style.display = "none";
+                post.style.display = "block";
+                editBtn.onclick = () =>{
+                    widget.style.display = "block";
+                    post.style.display = "none";
+                }
+                return false;
+            }
+                function openAbout(){
+                document.getElementById("about").style.width = "100%";
+        
+            }
+            function closeNav(){
+                document.getElementById("about").style.width = "0%";
+            }
+
+            
+           
+               
+            </script>
+            <!--JavaScript ends -->
+            <!-- <script src="search-results.js"></script> -->
+            
+            <!-- <script src="foodItem.js"></script> -->
+        </body>
+        </html>

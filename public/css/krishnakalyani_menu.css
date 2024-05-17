@@ -1,0 +1,100 @@
+*
+{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+  }
+html{
+    font-size: 67.5%;
+}
+
+.Greet
+{
+    text-align: center;
+    font-weight: 5rem;
+    font-size: 3.5rem;
+    color:green;
+    
+}
+
+.menu{
+    width:92vw;
+    margin:0 auto;
+    background-color: yellow;
+    border-radius: 2rem;
+}
+.menu-name{
+    width:92vw;
+    height: 5rem;
+    margin:0 auto;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    background-color: yellow;
+    border-radius:2rem;
+    text-align: center;
+    font-size: 3rem;
+}
+
+.menu-items
+{
+    width:90vw;
+    /* height: 90vh; */
+    margin:2rem auto;
+    margin-top: 0;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border-radius: 2rem;
+    display: grid;
+    grid-template-columns: repeat(4,minmax(25rem,1fr));
+}
+
+.food-box
+{
+    height:21rem;
+    /* width:15rem; */
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 2rem;
+    margin:1rem 3rem;
+}
+
+.image img
+{
+    height:13rem;
+    width:90%;
+    margin:0.5rem 0.5rem;
+    border-radius: 2rem;
+}
+
+.adding
+{
+    text-align: center;
+    font-weight: 3rem;
+    font-size: 2rem;
+}
+
+.food-box .content .adding .click_to_add{
+    color:red;
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+    border:0.1rem solid red;
+    border-radius: 3rem;
+}
+
+.review
+{
+    font-size: 2rem;
+    color:green;
+    margin: 1rem 1rem;
+}
+
+.food-box .content .adding .review a
+{
+    text-decoration-line: none;
+}

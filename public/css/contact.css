@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap');
+*{
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins";
+    font-weight: 100;
+    
+}
+body{
+    margin-top: 100px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.row{
+    width:60%;
+    height:600px;
+    color:rgb(255, 255, 255);
+    justify-content: center;
+    align-items: center;
+    position: relative;    
+}
+.row i{
+    color:orangered;
+    margin:5px;
+}
+.box{
+    font-size: 18px;
+    border-radius: 15px;
+    display: block;
+    width:450px;
+    position:relative;
+    height: fit-content;
+    padding:25px;
+    justify-content: center;
+    box-shadow: 0 10px 100px rgba(148, 54, 0, 0.674);
+    text-align: center;
+    background: linear-gradient(60deg,rgb(179, 48, 0),rgb(255, 130, 85));
+}
+.box h2{
+    justify-content: center;
+}
+.contact{
+    margin-right: 100px;
+    border-radius: 25px;
+    float:right;
+    height: 600px;
+    width: 40%;
+    padding-top:40px;
+    text-align: center;
+    background-color:rgb(253, 218, 176);
+    box-shadow:0 10px 25px rgb(230, 199, 160);
+}
+.form{
+    color: black;
+    margin-top:10px;
+    width: 100%;
+    float: left;
+   
+    
+}
+.uname{
+    font-weight: 600;
+    height:30px;
+    width:400px;    
+    border:2px solid black;
+    margin-top:20px;
+    margin-bottom: 20px;
+}
+.submit{
+    font-weight: 400;
+    height:fit-content;
+    padding: 5px;
+    background-color:orangered;
+    border:none;
+    color:white;
+    border-radius:5px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.formtext{
+    height :300px;
+    width:400px;
+    border:2px solid black;
+    
+}
+
+.form input{
+    border-radius: 5px;
+    border: none;
+    padding: 20px 36px;
+    font-size: small;
+    text-align: center;
+}
+
+.form textarea{
+    font-weight: 400;
+    border-radius: 5px;
+    border: none;
+    padding: 20px 36px;
+    font-size: small;
+    resize: none;
+}
+
+.thank-you-message {
+    display: none;
+    margin-top: 15px; 
+    color: rgb(179, 104, 34);
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+}
+.thank-you-message.show {
+    display: block;
+}
